@@ -365,7 +365,7 @@ static CGFloat const kDefaultDismissalAnimationDuration = 0.6f;
     _disabledButtonTitleColor = [UIColor whiteColor];
     
     _buttonCornerRadius = 6.0f;
-    
+    _buttonHeight = 40; //default action button height
     _transitionStyle = NYAlertViewControllerTransitionStyleSlideFromTop;
     
     self.modalPresentationStyle = UIModalPresentationCustom;
@@ -734,6 +734,10 @@ static CGFloat const kDefaultDismissalAnimationDuration = 0.6f;
     for (NYAlertViewButton *button in self.view.actionButtons) {
         button.cornerRadius = buttonCornerRadius;
     }
+}
+
+- (void)setButtonHeight:(CGFloat)buttonHeight {
+    self.view.buttonHeight = buttonHeight;
 }
 
 - (void)addAction:(UIAlertAction *)action {

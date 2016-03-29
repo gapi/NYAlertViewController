@@ -78,6 +78,8 @@ static NSString * const kTableViewCellReuseIdentifier = @"kTableViewCellReuseIde
     alertViewController.cancelButtonTitleFont = [UIFont fontWithName:@"AvenirNext-Medium" size:alertViewController.cancelButtonTitleFont.pointSize];
     //Force the buttons to be shown verticaly
     alertViewController.showsButtonsVerticaly = YES;
+    //Set action buttons height
+    alertViewController.buttonHeight = 60;
     
     for (int i = 0; i < actionCount; i++) {
         NSString *actionTitle = [NSString stringWithFormat:NSLocalizedString(@"Action %d", nil), i + 1];

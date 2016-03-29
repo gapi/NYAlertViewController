@@ -187,6 +187,11 @@ typedef NS_ENUM(NSInteger, NYAlertViewControllerTransitionStyle) {
 @property (nonatomic) CGFloat buttonCornerRadius;
 
 /**
+ Height of the action buttons
+ */
+@property (nonatomic) CGFloat buttonHeight;
+
+/**
  An array of NYAlertAction objects representing the actions that the user can take in response to the alert view
  */
 @property (nonatomic, readonly) NSArray *actions;
