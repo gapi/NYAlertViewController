@@ -156,6 +156,16 @@
     self.layer.borderWidth = borderWidth;
 }
 
+- (void)setColor:(UIColor *)color {
+    _color = color;
+    if (self.type == NYAlertViewButtonTypeFilled) {
+        [self setBackgroundColor:color forState:UIControlStateNormal];
+    } else {
+        [self setBackgroundColor:[UIColor clearColor] forState:UIControlStateNormal];
+        self.layer.borderColor = color.CGColor;
+    }
+}
+
 //- (void)setEnabled:(BOOL)enabled {
 //    [super setEnabled:enabled];
 //
@@ -210,7 +220,7 @@
         self.layer.borderColor = self.tintColor.CGColor;
         self.layer.borderWidth = 0.0f;
     } else {
-        self.layer.borderColor = self.titleLabel.textColor.CGColor;
+        self.layer.borderColor = self.color.CGColor;
     }
     
     /*if (self.state == UIControlStateHighlighted) {

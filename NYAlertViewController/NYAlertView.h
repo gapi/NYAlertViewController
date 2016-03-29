@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, NYAlertViewButtonType) {
 
 @property (nonatomic) NYAlertViewButtonType type;
 
+@property (nonatomic) UIColor *color;
 @property (nonatomic) CGFloat cornerRadius;
 @property (nonatomic) CGFloat borderWidth;
 

@@ -527,9 +527,11 @@ static CGFloat const kDefaultDismissalAnimationDuration = 0.6f;
             
         }
         
+        button.color = buttonColor;
+        
         [button setTitleColor:buttonTitleColor forState:UIControlStateNormal];
         [button setTitleColor:buttonTitleColor forState:UIControlStateHighlighted];
-        [button setBackgroundColor:buttonColor forState:UIControlStateNormal];
+        
         
         button.titleLabel.font = self.buttonTitleFont;
         
