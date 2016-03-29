@@ -80,6 +80,7 @@ static NSString * const kTableViewCellReuseIdentifier = @"kTableViewCellReuseIde
     alertViewController.showsButtonsVerticaly = YES;
     //Set action buttons height
     alertViewController.buttonHeight = 60;
+    alertViewController.buttonHorizontalMargin = 30;
     
     for (int i = 0; i < actionCount; i++) {
         NSString *actionTitle = [NSString stringWithFormat:NSLocalizedString(@"Action %d", nil), i + 1];

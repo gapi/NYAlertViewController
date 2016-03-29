@@ -740,6 +740,10 @@ static CGFloat const kDefaultDismissalAnimationDuration = 0.6f;
     self.view.buttonHeight = buttonHeight;
 }
 
+- (void)setButtonHorizontalMargin:(CGFloat)buttonHorizontalMargin {
+    self.view.buttonHorizontalMargin = buttonHorizontalMargin;
+}
+
 - (void)addAction:(UIAlertAction *)action {
     _actions = [self.actions arrayByAddingObject:action];
 }
