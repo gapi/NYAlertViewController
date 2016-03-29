@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NYAlertView.h"
 
 @interface NYAlertAction : NSObject
 
@@ -190,6 +191,10 @@ typedef NS_ENUM(NSInteger, NYAlertViewControllerTransitionStyle) {
  Height of the action buttons
  */
 @property (nonatomic) CGFloat buttonHeight;
+
+@property (nonatomic) CGFloat buttonBorderWidth;
+
+@property (nonatomic) NYAlertViewButtonType buttonType;
 
 
 /**

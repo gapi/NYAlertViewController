@@ -124,7 +124,7 @@
 //    }
 }
 
-- (void)tintColorDidChange {
+/*- (void)tintColorDidChange {
     [super tintColorDidChange];
     
     if (self.type == NYAlertViewButtonTypeFilled) {
@@ -138,7 +138,7 @@
     self.layer.borderColor = self.tintColor.CGColor;
     
     [self setNeedsDisplay];
-}
+}*/
 
 - (CGFloat)cornerRadius {
     return self.layer.cornerRadius;
@@ -146,6 +146,14 @@
 
 - (void)setCornerRadius:(CGFloat)cornerRadius {
     self.layer.cornerRadius = cornerRadius;
+}
+
+- (CGFloat)borderWidth {
+    return self.layer.borderWidth;
+}
+
+- (void)setBorderWidth:(CGFloat)borderWidth {
+    self.layer.borderWidth = borderWidth;
 }
 
 //- (void)setEnabled:(BOOL)enabled {
@@ -198,15 +206,14 @@
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     
-    self.layer.borderColor = self.tintColor.CGColor;
-    
-    if (self.type == NYAlertViewButtonTypeBordered) {
-        self.layer.borderWidth = 1.0f;
-    } else {
+    if (self.type != NYAlertViewButtonTypeBordered) {
+        self.layer.borderColor = self.tintColor.CGColor;
         self.layer.borderWidth = 0.0f;
+    } else {
+        self.layer.borderColor = self.titleLabel.textColor.CGColor;
     }
     
-    if (self.state == UIControlStateHighlighted) {
+    /*if (self.state == UIControlStateHighlighted) {
         self.layer.backgroundColor = self.tintColor.CGColor;
         //        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     } else {
@@ -216,7 +223,7 @@
         } else {
             //            [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
-    }
+    }*/
 }
 
 @end
@@ -295,8 +302,6 @@
     for (UIView *view in self.subviews) {
         [view removeConstraints:view.constraints];
     }
-    
-    
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.alertBackgroundView
                                                      attribute:NSLayoutAttributeCenterX

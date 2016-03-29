@@ -79,8 +79,13 @@ static NSString * const kTableViewCellReuseIdentifier = @"kTableViewCellReuseIde
     //Force the buttons to be shown verticaly
     alertViewController.showsButtonsVerticaly = YES;
     //Set action buttons height
+    alertViewController.buttonColor = [UIColor clearColor];
+    alertViewController.buttonTitleColor = [UIColor yellowColor];
+    alertViewController.buttonCornerRadius = 0;
     alertViewController.buttonHeight = 60;
     alertViewController.buttonHorizontalMargin = 30;
+    alertViewController.buttonType = NYAlertViewButtonTypeBordered;
+    alertViewController.buttonBorderWidth = 3;
     
     for (int i = 0; i < actionCount; i++) {
         NSString *actionTitle = [NSString stringWithFormat:NSLocalizedString(@"Action %d", nil), i + 1];

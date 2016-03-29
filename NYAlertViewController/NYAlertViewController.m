@@ -7,8 +7,6 @@
 
 #import "NYAlertViewController.h"
 
-#import "NYAlertView.h"
-
 @interface NYAlertAction ()
 
 @property (weak, nonatomic) UIButton *actionButton;
@@ -499,32 +497,41 @@ static CGFloat const kDefaultDismissalAnimationDuration = 0.6f;
         
         button.enabled = action.enabled;
         
+        button.type = self.buttonType;
+        button.borderWidth = self.buttonBorderWidth;
         button.cornerRadius = self.buttonCornerRadius;
+        
         [button setTranslatesAutoresizingMaskIntoConstraints:NO];
         [button setTitle:action.title forState:UIControlStateNormal];
         
         [button setTitleColor:self.disabledButtonTitleColor forState:UIControlStateDisabled];
         [button setBackgroundColor:self.disabledButtonColor forState:UIControlStateDisabled];
         
+        
+        UIColor *buttonTitleColor = self.buttonTitleColor;
+        UIColor *buttonColor = self.buttonColor;
+        
+        UIFont *buttonTitleFont = self.buttonTitleFont;
+        
         if (action.style == UIAlertActionStyleCancel) {
-            [button setTitleColor:self.cancelButtonTitleColor forState:UIControlStateNormal];
-            [button setTitleColor:self.cancelButtonTitleColor forState:UIControlStateHighlighted];
-            [button setBackgroundColor:self.cancelButtonColor forState:UIControlStateNormal];
-
-            button.titleLabel.font = self.cancelButtonTitleFont;
+            buttonTitleColor = self.cancelButtonTitleColor;
+            buttonColor = self.cancelButtonColor;
+            
+            buttonTitleFont = self.cancelButtonTitleFont;
         } else if (action.style == UIAlertActionStyleDestructive) {
-            [button setTitleColor:self.destructiveButtonTitleColor forState:UIControlStateNormal];
-            [button setTitleColor:self.destructiveButtonTitleColor forState:UIControlStateHighlighted];
-            [button setBackgroundColor:self.destructiveButtonColor forState:UIControlStateNormal];
-
-            button.titleLabel.font = self.destructiveButtonTitleFont;
+            buttonTitleColor = self.destructiveButtonTitleColor;
+            buttonColor = self.destructiveButtonColor;
+            
+            buttonTitleFont = self.destructiveButtonTitleFont;
         } else {
-            [button setTitleColor:self.buttonTitleColor forState:UIControlStateNormal];
-            [button setTitleColor:self.buttonTitleColor forState:UIControlStateHighlighted];
-            [button setBackgroundColor:self.buttonColor forState:UIControlStateNormal];
-
-            button.titleLabel.font = self.buttonTitleFont;
+            
         }
+        
+        [button setTitleColor:buttonTitleColor forState:UIControlStateNormal];
+        [button setTitleColor:buttonTitleColor forState:UIControlStateHighlighted];
+        [button setBackgroundColor:buttonColor forState:UIControlStateNormal];
+        
+        button.titleLabel.font = self.buttonTitleFont;
         
         [buttons addObject:button];
         
