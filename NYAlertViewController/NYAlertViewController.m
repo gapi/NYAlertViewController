@@ -530,7 +530,11 @@ static CGFloat const kDefaultDismissalAnimationDuration = 0.6f;
         button.color = buttonColor;
         
         [button setTitleColor:buttonTitleColor forState:UIControlStateNormal];
-        [button setTitleColor:buttonTitleColor forState:UIControlStateHighlighted];
+        if (self.buttonType == NYAlertViewButtonTypeBordered) {
+            [button setTitleColor:[buttonTitleColor colorWithAlphaComponent:0.2] forState:UIControlStateHighlighted];
+        } else {
+            [button setTitleColor:buttonTitleColor forState:UIControlStateHighlighted];
+        }
         
         
         button.titleLabel.font = self.buttonTitleFont;
