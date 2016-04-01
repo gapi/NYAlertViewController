@@ -356,12 +356,14 @@
                                                     multiplier:0.9f
                                                       constant:0.0f]];
     
-    [self.alertBackgroundView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_titleLabel]-|"
+    
+    
+    [self.alertBackgroundView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[_titleLabel]-15-|"
                                                                                      options:0
                                                                                      metrics:nil
                                                                                        views:NSDictionaryOfVariableBindings(_titleLabel)]];
     
-    [self.alertBackgroundView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_messageTextView]-|"
+    [self.alertBackgroundView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[_messageTextView]-15-|"
                                                                                      options:0
                                                                                      metrics:nil
                                                                                        views:NSDictionaryOfVariableBindings(_messageTextView)]];
@@ -381,7 +383,7 @@
                                                                                      metrics:nil
                                                                                        views:NSDictionaryOfVariableBindings(_actionButtonContainerView)]];
     
-    [self.alertBackgroundView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_titleLabel]-2-[_messageTextView][_contentViewContainerView][_textFieldContainerView][_actionButtonContainerView]-|"
+    [self.alertBackgroundView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-25-[_titleLabel]-5-[_messageTextView]-10-[_contentViewContainerView][_textFieldContainerView][_actionButtonContainerView]-10-|"
                                                                                      options:0
                                                                                      metrics:nil
                                                                                        views:NSDictionaryOfVariableBindings(_titleLabel,
